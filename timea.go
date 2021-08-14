@@ -123,7 +123,8 @@ func Of(t time.Time, options ...Options) string {
 		return Of(t, Options{
 			Precision: YearPrecision,
 		})
-	case YearPrecision:
+	default:
+		// its year precision
 		years := time.Since(t).Round(time.Hour*24*365).Hours() / (24 * 365)
 		if years == 0 {
 			return opt.Format.ThisYear
@@ -133,9 +134,6 @@ func Of(t time.Time, options ...Options) string {
 		}
 		return fmt.Sprintf(opt.Format.YearsAgo, int(years))
 	}
-
-	// this should never happen
-	return t.String()
 }
 
 // Format is the format of the string returned by the library.
