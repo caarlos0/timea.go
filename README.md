@@ -7,13 +7,15 @@
 
 `timea.go` (_did you see what I did there?_) is a simple library to print given times in "time ago" manner.
 
-Example:
+## Usage
+
+Get it:
 
 ```sh
 go get github.com/caarlos0/timea.go
 ```
 
-Simple usage:
+Use it:
 
 ```go
 package main
@@ -29,3 +31,11 @@ func main() {
 	fmt.Println(timeago.Of(time.Now().Add(-5 * time.Second)))
 }
 ```
+
+You may also check the [go docs](https://pkg.go.dev/github.com/caarlos0/timea.go) for advanced usage, like custom precisions and string templates.
+
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/caarlos0/timea.go.svg)](https://starchart.cc/caarlos0/timea.go)
+
