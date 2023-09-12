@@ -28,8 +28,8 @@ import (
 )
 
 func main() {
-	fmt.Println(timeago.Of(time.Now().Add(-5 * time.Second)))
-	// 5 seconds ago
+	fmt.Println(timeago.Of(time.Now().Add(-5 * time.Second))) // 5 seconds ago
+	fmt.Println(timeago.Of(time.Now().Add(5 * time.Second))) // 5 seconds from now
 }
 ```
 
