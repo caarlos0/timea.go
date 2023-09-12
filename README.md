@@ -29,7 +29,7 @@ import (
 
 func main() {
 	fmt.Println(timeago.Of(time.Now().Add(-5 * time.Second)))
-  // 5 seconds ago
+	// 5 seconds ago
 }
 ```
 
