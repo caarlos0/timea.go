@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"testing"
 	"time"
-
-	"github.com/matryer/is"
 )
 
 func TestOfSecondPrecision(t *testing.T) {
@@ -17,7 +15,7 @@ func TestOfSecondPrecision(t *testing.T) {
 		"1 minute ago":   time.Now().Add(-63 * time.Second),
 	} {
 		t.Run(expected, func(t *testing.T) {
-			is.New(t).Equal(Of(input, Options{Precision: SecondPrecision}), expected)
+			isEqual(t, Of(input, Options{Precision: SecondPrecision}), expected)
 		})
 	}
 }
@@ -31,7 +29,7 @@ func TestOfMinutePrecision(t *testing.T) {
 		"last hour":      time.Now().Add(-63 * time.Minute),
 	} {
 		t.Run(expected, func(t *testing.T) {
-			is.New(t).Equal(Of(input, Options{Precision: MinutePrecision}), expected)
+			isEqual(t, Of(input, Options{Precision: MinutePrecision}), expected)
 		})
 	}
 }
@@ -45,7 +43,7 @@ func TestOfHourPrecision(t *testing.T) {
 		"yesterday":    time.Now().Add(-25 * time.Hour),
 	} {
 		t.Run(expected, func(t *testing.T) {
-			is.New(t).Equal(Of(input, Options{Precision: HourPrecision}), expected)
+			isEqual(t, Of(input, Options{Precision: HourPrecision}), expected)
 		})
 	}
 }
@@ -59,7 +57,7 @@ func TestOfDayPrecision(t *testing.T) {
 		"last month":  time.Now().Add(-1 * 30 * 24 * time.Hour),
 	} {
 		t.Run(expected, func(t *testing.T) {
-			is.New(t).Equal(Of(input, Options{Precision: DayPrecision}), expected)
+			isEqual(t, Of(input, Options{Precision: DayPrecision}), expected)
 		})
 	}
 }
@@ -72,7 +70,7 @@ func TestOfMonthPrecision(t *testing.T) {
 		"last year":    time.Now().Add(-1 * 365 * 24 * time.Hour),
 	} {
 		t.Run(expected, func(t *testing.T) {
-			is.New(t).Equal(Of(input, Options{Precision: MonthPrecision}), expected)
+			isEqual(t, Of(input, Options{Precision: MonthPrecision}), expected)
 		})
 	}
 }
@@ -84,13 +82,14 @@ func TestOfYearPrecision(t *testing.T) {
 		"3 years ago": time.Now().Add(-3 * 365 * 24 * time.Hour),
 	} {
 		t.Run(expected, func(t *testing.T) {
-			is.New(t).Equal(Of(input, Options{Precision: YearPrecision}), expected)
+			isEqual(t, Of(input, Options{Precision: YearPrecision}), expected)
 		})
 	}
 }
 
 func TestOfCustomFormat(t *testing.T) {
-	is.New(t).Equal(
+	isEqual(
+		t,
 		Of(
 			time.Now(),
 			Options{
@@ -102,6 +101,13 @@ func TestOfCustomFormat(t *testing.T) {
 		),
 		"aloha",
 	)
+}
+
+func isEqual(tb testing.TB, result, expected string) {
+	tb.Helper()
+	if expected != result {
+		tb.Errorf("expected %q, got %q", expected, result)
+	}
 }
 
 func ExampleOf() {

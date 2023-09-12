@@ -4,7 +4,8 @@
 [![Coverage Status](https://img.shields.io/codecov/c/gh/caarlos0/timea.go.svg?logo=codecov&style=for-the-badge)](https://codecov.io/gh/caarlos0/timea.go)
 [![](http://img.shields.io/badge/godoc-reference-5272B4.svg?style=for-the-badge)](https://pkg.go.dev/github.com/caarlos0/timea.go)
 
-`timea.go` (_did you see what I did there?_) is a simple library to print given times in "time ago" manner.
+`timea.go` (_did you see what I did there?_) is a simple and 0-dependencies
+library to print given times in "time ago" manner.
 
 ## Usage
 
@@ -31,7 +32,8 @@ func main() {
 }
 ```
 
-You may also check the [go docs](https://pkg.go.dev/github.com/caarlos0/timea.go) for advanced usage, like custom precisions and string templates.
+You may also check the [go docs](https://pkg.go.dev/github.com/caarlos0/timea.go)
+for advanced usage, like custom precision and string templates.
 
 ## Stargazers over time
 
