@@ -24,7 +24,7 @@ jobs:
           go-version: ${{ matrix.go-version }}
           cache: true
       - run: make setup ci
-      - uses: codecov/codecov-action@v4
+      - uses: codecov/codecov-action@v5
         if: matrix.os == 'ubuntu-latest'
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
